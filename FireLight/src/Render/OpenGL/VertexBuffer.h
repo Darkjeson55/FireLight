@@ -106,9 +106,14 @@ namespace FL
 
 		void SetBufferLayout(BufferLayout layout) { m_layout = layout; }
 
-		inline const BufferLayout& GetBufferLayout() const { return m_layout; }
+		template <class T>
+		void AddData(GLsizeiptr size, const std::vector<T>& data)
+		{
+			Bind();
+			glBufferSubData(GL_ARRAY_BUFFER, 0, size, &data[0]);
+		}
 
-		void AddData(GLsizeiptr size, void* data);
+		inline const BufferLayout& GetBufferLayout() const { return m_layout; }
 
 	private:
 		GLuint m_bufferID;

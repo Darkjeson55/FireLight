@@ -1,7 +1,7 @@
 #pragma once
 
 #include <GL/gl3w.h>
-
+#include <vector>
 
 namespace FL
 {
@@ -15,9 +15,15 @@ namespace FL
 		void Bind();
 		void UnBind();
 
+		template <class T>
+		void AddData(GLsizeiptr size, const std::vector<T>& data)
+		{
+			Bind();
+			glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, size, &data[0]);
+		}
+
 		void BuildBuffer(GLsizeiptr size, GLbitfield BufferUsage);
 		void BuildBuffer(GLsizeiptr size, void* data ,GLbitfield BufferUsage);
-		void AddData(GLsizeiptr size, void* data);
 
 	private:
 		GLuint m_bufferID;

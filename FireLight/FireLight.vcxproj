@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{004DE5F1-D10B-4D8A-BC89-61E3BB365C60}</ProjectGuid>
     <RootNamespace>FireLight</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -130,7 +130,7 @@
     </Link>
     <Lib>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>glfw3s.lib;opengl32.lib;SOILs.lib;Box2Ds.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3s.lib;opengl32.lib;SOILs.lib;Box2Ds.lib;freetype.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

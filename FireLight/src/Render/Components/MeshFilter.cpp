@@ -8,7 +8,7 @@ MeshFilter::MeshFilter()
 	m_vbo_uv = std::make_shared<FL::VertexBuffer>();
 	m_vbo_normals = std::make_shared<FL::VertexBuffer>();
 	m_ibo = std::make_shared<FL::IndexBuffer>();
-	m_shader = ResourceManager::LoadShader("Resources/ShaderTest.glsl", "ShaderTest");
+	m_shader = ResourceManager::LoadShader("Resources/defaultTest.glsl", "ShaderTest");
 
 	CalculateBuffer();
 }
@@ -21,7 +21,10 @@ MeshFilter::MeshFilter(Mesh mesh)
 	m_vbo_uv = std::make_shared<FL::VertexBuffer>();
 	m_vbo_normals = std::make_shared<FL::VertexBuffer>();
 	m_ibo = std::make_shared<FL::IndexBuffer>();
-	m_shader = ResourceManager::LoadShader("Resources/ShaderTest.glsl", "ShaderTest");
+	m_shader = ResourceManager::LoadShader("Resources/defaultTest.glsl", "ShaderTest");
+
+	MAX_VERTICES = mesh.vertices.size();
+	m_max_index = mesh.indices.size();
 	CalculateBuffer();
 }
 
@@ -31,8 +34,11 @@ void MeshFilter::CalculateBuffer()
 		{FL::DataType::Vec3}
 	});
 
-	GLsizeiptr vertices_size = sizeof(std::vector<glm::vec3>) + (sizeof(glm::vec3) * MAX_VERTICES);
-	GLsizeiptr index_size = sizeof(std::vector<int>) + (sizeof(int) * m_max_index);
+	//GLsizeiptr vertices_size = sizeof(std::vector<glm::vec3>) + (sizeof(glm::vec3) * MAX_VERTICES);
+	//GLsizeiptr index_size = sizeof(std::vector<int>) + (sizeof(int) * m_max_index);
+
+	GLsizeiptr vertices_size = m_mesh.vertices.size() * sizeof(glm::vec3);
+	GLsizeiptr index_size = m_mesh.indices.size() * sizeof(int);
 
 	m_vbo_vertices->BuilBuffer(vertices_size, nullptr, GL_DYNAMIC_DRAW);
 	m_vbo_normals->BuilBuffer(vertices_size, nullptr, GL_DYNAMIC_DRAW);
@@ -58,12 +64,15 @@ void MeshFilter::UpdateBuffers()
 	if (currentIndex == m_mesh.indices.size())
 		return;
 
-	GLsizeiptr vertices_size = sizeof(std::vector<glm::vec3>) + (sizeof(glm::vec3) * m_mesh.vertices.size());
-	GLsizeiptr index_size = sizeof(std::vector<int>) + (sizeof(int) * m_mesh.indices.size());
+	//GLsizeiptr vertices_size = sizeof(std::vector<glm::vec3>) + (sizeof(glm::vec3) * m_mesh.vertices.size());
+	//GLsizeiptr index_size = sizeof(std::vector<int>) + (sizeof(int) * m_mesh.indices.size());
 
-	m_vbo_vertices->AddData(vertices_size,&m_mesh.vertices[0]);
-	m_vbo_normals->AddData(vertices_size, &m_mesh.normals[0]);
-	m_ibo->AddData(index_size,&m_mesh.indices[0]);
+	GLsizeiptr vertices_size = m_mesh.vertices.size() * sizeof(glm::vec3);
+	GLsizeiptr index_size = m_mesh.indices.size() * sizeof(int);
+
+	m_vbo_vertices->AddData(vertices_size, m_mesh.vertices);
+	m_vbo_normals->AddData(vertices_size, m_mesh.normals);
+	m_ibo->AddData(index_size, m_mesh.indices);
 
 	currentIndex = m_mesh.indices.size();
 }

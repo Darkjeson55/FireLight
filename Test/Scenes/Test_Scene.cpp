@@ -9,19 +9,23 @@ void Test_Scene::Init()
 	ResourceManager::LoadShader("Resources/defaultTest.glsl", "shader");
 	
 	Assimp::Importer importer;
-	std::string path = "Resources/Models/Cube/cube.obj";
+	std::string path = "Resources/Models/Sponza/sponza.obj";
 	LoadModel(path);
+
+	/*for (int i = 0; i < 1; i++)
+	{
+		for (int x = 0; x < meshes[0].indices.size(); x++)
+		{
+			std::cout << "indieces: " << meshes[0].indices[x] << std::endl;
+		}
+	}*/
+
 	
-
-	std::cout << meshes.size() << std::endl;
-	//std::cout << "Indices: " << meshes[0].indices.size() << std::endl;
-
 	for (int i = 0; i < meshes.size(); i++)
 	{
 		auto box = CreateGameOject();
-		box->AddComponent(std::make_shared<Transform>(glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1)));
+		box->AddComponent(std::make_shared<Transform>(glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), glm::vec3(0.1f, 0.1f, 0.1f)));
 		box->AddComponent(std::make_shared<MeshFilter>(meshes[i]));
-
 	}
 	//box->GetComponent<MeshFilter>()->SetMesh(mesh);
 
@@ -46,7 +50,7 @@ void Test_Scene::Update()
 void Test_Scene::LoadModel(std::string path)
 {
 	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(path, aiProcessPreset_TargetRealtime_Fast | aiProcess_GenNormals  | aiProcess_FlipUVs | aiProcess_JoinIdenticalVertices);
+	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
 
 
 	aiNode* node = scene->mRootNode;
@@ -70,7 +74,7 @@ void Test_Scene::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 {
 	Mesh nodeMesh;
 
-	std::cout << "Vertices: " << mesh->mNumVertices << std::endl;
+	//std::cout << "Vertices: " << mesh->mNumVertices << std::endl;
 
 	for(unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
@@ -81,9 +85,9 @@ void Test_Scene::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 		vertexPos.y = mesh->mVertices[i].y;
 		vertexPos.z = mesh->mVertices[i].z;
 
-		vertexNormal.x = 1;
-		vertexNormal.y = 0;
-		vertexNormal.z = 0;
+		vertexNormal.x = mesh->mNormals[i].x;
+		vertexNormal.y = mesh->mNormals[i].y;
+		vertexNormal.z = mesh->mNormals[i].z;
 
 		nodeMesh.vertices.push_back(vertexPos);
 
@@ -93,9 +97,16 @@ void Test_Scene::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 
 	for (unsigned int i = 0; i < mesh->mNumFaces; i++)
 	{
-		aiFace face = mesh->mFaces[i];
+		if (mesh->mFaces->mNumIndices == 3)
+		{
+			nodeMesh.indices.push_back(mesh->mFaces[i].mIndices[0]);
+			nodeMesh.indices.push_back(mesh->mFaces[i].mIndices[1]);
+			nodeMesh.indices.push_back(mesh->mFaces[i].mIndices[2]);
+		}
+
+		/*aiFace face = mesh->mFaces[i];
 		for (unsigned int j = 0; j < face.mNumIndices; j++)
-			nodeMesh.indices.push_back(face.mIndices[j]);
+			nodeMesh.indices.push_back(face.mIndices[j]);*/
 	}
 
 

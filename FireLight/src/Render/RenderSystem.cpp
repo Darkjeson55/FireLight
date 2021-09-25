@@ -33,6 +33,7 @@ void RenderSystem::AddMesh(GameObject* obj, std::shared_ptr<Shader> shader)
 	buffer.shader = shader;
 	buffer.index = mesh->GetIndex();
 	buffer.m_vao = mesh->GetVAO();
+	buffer.m_ibo = mesh->GetIBO();
 	buffer.model = transform->GetMatrix();
 	m_mesh_buffers.push_back(buffer);
 }
@@ -44,6 +45,7 @@ void RenderSystem::AddMesh(MeshFilter* mesh, Transform* transform, std::shared_p
 	buffer.shader = shader;
 	buffer.index = mesh->GetIndex();
 	buffer.m_vao = mesh->GetVAO();
+	buffer.m_ibo = mesh->GetIBO();
 	buffer.model = transform->GetMatrix();
 	m_mesh_buffers.push_back(buffer);
 } 
@@ -55,6 +57,7 @@ void RenderSystem::Debug()
 
 void  RenderSystem::Render()
 {
+
 	for (int i = 0; i < m_mesh_buffers.size(); i++)
 	{
 		auto shader = m_mesh_buffers[i].shader;
@@ -63,8 +66,12 @@ void  RenderSystem::Render()
 
 		shader->Use();
 		m_mesh_buffers[i].m_vao->Bind();
+		m_mesh_buffers[i].m_ibo->Bind();
+		//m_mesh_buffers[i].m_vao->Bind();
+		//std::cout << "Render mesh Buffers INDEX: " << m_mesh_buffers[i].index << std::endl;
+		glDrawElements(GL_TRIANGLES, m_mesh_buffers[i].index, GL_UNSIGNED_INT, 0);
 
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		m_mesh_buffers[i].m_vao->UnBind();
 	}
 
 	m_mesh_buffers.clear();

@@ -19,12 +19,6 @@ namespace FL
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
-	void IndexBuffer::AddData(GLsizeiptr size, void* data)
-	{
-		Bind();
-		glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, size, data);
-	}
-
 	void IndexBuffer::BuildBuffer(GLsizeiptr size, GLbitfield BufferUsage)
 	{
 		Bind();

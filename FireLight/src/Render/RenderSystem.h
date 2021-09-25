@@ -33,6 +33,7 @@ struct MeshBuffer {
 	int index = 0;
 	std::shared_ptr<Shader> shader;
 	std::shared_ptr<FL::VertexArray>  m_vao;
+	std::shared_ptr<FL::IndexBuffer>  m_ibo;
 };
 
 class RenderSystem

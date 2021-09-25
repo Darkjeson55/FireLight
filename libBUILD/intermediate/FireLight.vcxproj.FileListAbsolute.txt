@@ -1,2 +1,0 @@
-F:\C++GitProjects\FireLight\libBUILD\intermediate\FireLight.pdb
-F:\C++GitProjects\FireLight\libBUILD\FireLight.pdb

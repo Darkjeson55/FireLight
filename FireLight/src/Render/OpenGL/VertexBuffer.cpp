@@ -14,12 +14,6 @@ namespace FL {
 		glBindBuffer(GL_ARRAY_BUFFER,m_bufferID);
 	}
 
-	void VertexBuffer::AddData(GLsizeiptr size, void* data)
-	{
-		Bind();
-		glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
-	}
-
 	void VertexBuffer::BuilBuffer(GLsizeiptr size, GLbitfield BufferUsage)
 	{
 		Bind();

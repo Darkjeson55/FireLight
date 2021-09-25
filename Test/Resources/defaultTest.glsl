@@ -60,7 +60,7 @@
         vec3 lightColor = vec3(1,1,1);
         vec3 lightDirection = vec3(-0.2f, -1.0f, -0.3f);
         vec3 lightPos = vec3(1,5,1);
-        float ambientStrenght = 0.2f;
+        float ambientStrenght = 0.1f;
 
         vec3 ambient = ambientStrenght * lightColor ;
 

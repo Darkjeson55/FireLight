@@ -48,8 +48,9 @@ public:
 	void SetUv(std::vector<glm::vec2> uv);
 	void SetNormals(std::vector<glm::vec3> normals);
 
-	int GetIndex() { return m_max_index; }
+	int GetIndex() { return m_mesh.indices.size(); }
 	std::shared_ptr<FL::VertexArray> GetVAO() { return m_vao; }
+	std::shared_ptr<FL::IndexBuffer> GetIBO() { return m_ibo; }
 
 	int a = 15;
 	
@@ -57,7 +58,7 @@ public:
 private:
 	
 	Mesh m_mesh;
-	const int MAX_VERTICES = USHRT_MAX;
+	int MAX_VERTICES = 65000;
 	int m_max_index = MAX_VERTICES * 6;
 	int currentIndex;
 
