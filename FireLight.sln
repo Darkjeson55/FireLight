@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FireLight", "FireLight\FireLight.vcxproj", "{004DE5F1-D10B-4D8A-BC89-61E3BB365C60}"
 EndProject
 Global
@@ -15,14 +13,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Debug|x64.ActiveCfg = Debug|x64
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Debug|x64.Build.0 = Debug|x64
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Debug|x86.ActiveCfg = Debug|Win32
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Debug|x86.Build.0 = Debug|Win32
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Release|x64.ActiveCfg = Release|x64
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Release|x64.Build.0 = Release|x64
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Release|x86.ActiveCfg = Release|Win32
-		{019D35F6-BFF6-42E4-9E8C-A0F2825508AF}.Release|x86.Build.0 = Release|Win32
 		{004DE5F1-D10B-4D8A-BC89-61E3BB365C60}.Debug|x64.ActiveCfg = Debug|x64
 		{004DE5F1-D10B-4D8A-BC89-61E3BB365C60}.Debug|x64.Build.0 = Debug|x64
 		{004DE5F1-D10B-4D8A-BC89-61E3BB365C60}.Debug|x86.ActiveCfg = Debug|Win32

@@ -1,6 +1,0 @@
-var dir_ea37106ce382f4934aa9c2fc45f20794 =
-[
-    [ "Core", "dir_29734224e01061639d04f0bbd9907e07.html", "dir_29734224e01061639d04f0bbd9907e07" ],
-    [ "Render", "dir_cd0a8a153b3b87100ba3256a181f205b.html", "dir_cd0a8a153b3b87100ba3256a181f205b" ],
-    [ "Utility", "dir_eb7f2e729f817617791389790627cf11.html", "dir_eb7f2e729f817617791389790627cf11" ]
-];

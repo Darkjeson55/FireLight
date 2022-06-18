@@ -39,7 +39,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)ThirdParty\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)libBUILD</OutDir>
     <IntDir>$(SolutionDir)libBUILD\intermediate</IntDir>
   </PropertyGroup>
@@ -86,7 +86,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;SOIL.lib;Box2D.lib;freetype.lib;assimp-vc142-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -134,94 +134,16 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Render\Components\Camera.h" />
-    <ClInclude Include="src\Render\CameraSystem.h" />
-    <ClInclude Include="src\Render\Components\MeshFilter.h" />
-    <ClInclude Include="src\Render\DebugDraw.h" />
-    <ClInclude Include="src\Render\Material.h" />
-    <ClInclude Include="src\Core\MessageSystem\Message.h" />
-    <ClInclude Include="src\Core\MessageSystem\MessageBus.h" />
-    <ClInclude Include="src\Render\Components\Sprite.h" />
-    <ClInclude Include="src\Render\Components\Transform.h" />
-    <ClInclude Include="src\Render\OpenGL\IndexBuffer.h" />
-    <ClInclude Include="src\Render\OpenGL\VertexArray.h" />
-    <ClInclude Include="src\Render\OpenGL\VertexBuffer.h" />
-    <ClInclude Include="src\Render\RenderSystem.h" />
-    <ClInclude Include="src\Render\Simple2DRenderSystem.h" />
-    <ClInclude Include="src\Core\Component.h" />
-    <ClInclude Include="src\Core\GameObject.h" />
-    <ClInclude Include="GL\khrplatform.h" />
-    <ClInclude Include="imgui\imconfig.h" />
-    <ClInclude Include="imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui_impl_glfw.h" />
-    <ClInclude Include="imgui\imgui_impl_opengl3.h" />
-    <ClInclude Include="imgui\imgui_internal.h" />
-    <ClInclude Include="imgui\imstb_rectpack.h" />
-    <ClInclude Include="imgui\imstb_textedit.h" />
-    <ClInclude Include="imgui\imstb_truetype.h" />
-    <ClInclude Include="imgui\misc\freetype\imgui_freetype.h" />
-    <ClInclude Include="imgui\misc\stl\imgui_stl.h" />
-    <ClInclude Include="src\Core\Input.h" />
-    <ClInclude Include="FireLight.h" />
-    <ClInclude Include="GL\gl3w.h" />
-    <ClInclude Include="GL\glcorearb.h" />
-    <ClInclude Include="src\Core\Scene.h" />
-    <ClInclude Include="src\Core\SceneManager.h" />
-    <ClInclude Include="src\Core\App.h" />
-    <ClInclude Include="src\Core\Time.h" />
-    <ClInclude Include="src\Utility\Debugging\Log.h" />
-    <ClInclude Include="src\Utility\FastNoise.h" />
-    <ClInclude Include="src\Utility\RandomNumber.h" />
-    <ClInclude Include="src\Utility\Resource.h" />
-    <ClInclude Include="src\Utility\ResourceManager.h" />
-    <ClInclude Include="src\Utility\Resources\Shader.h" />
-    <ClInclude Include="src\Core\Window.h" />
-    <ClInclude Include="src\Utility\Resources\Texture.h" />
-    <ClInclude Include="src\Core\System.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Core\Input.cpp" />
-    <ClCompile Include="src\Core\MessageSystem\Message.cpp" />
-    <ClCompile Include="src\Core\MessageSystem\MessageBus.cpp" />
-    <ClCompile Include="src\Render\Components\Camera.cpp" />
-    <ClCompile Include="src\Render\CameraSystem.cpp" />
-    <ClCompile Include="src\Render\Components\MeshFilter.cpp" />
-    <ClCompile Include="src\Render\Material.cpp" />
-    <ClCompile Include="src\Render\Components\Sprite.cpp" />
-    <ClCompile Include="src\Render\Components\Transform.cpp" />
-    <ClCompile Include="src\Render\OpenGL\IndexBuffer.cpp" />
-    <ClCompile Include="src\Render\OpenGL\VertexArray.cpp" />
-    <ClCompile Include="src\Render\OpenGL\VertexBuffer.cpp" />
-    <ClCompile Include="src\Render\RenderSystem.cpp" />
-    <ClCompile Include="src\Render\Simple2DRenderSystem.cpp" />
-    <ClCompile Include="src\Core\Component.cpp" />
-    <ClCompile Include="src\Core\GameObject.cpp" />
-    <ClCompile Include="imgui\imgui.cpp" />
-    <ClCompile Include="imgui\imgui_demo.cpp" />
-    <ClCompile Include="imgui\imgui_draw.cpp" />
+    <ClCompile Include="FireLight.cpp" />
     <ClCompile Include="imgui\imgui_impl_glfw.cpp" />
     <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="imgui\imgui_widgets.cpp" />
-    <ClCompile Include="imgui\misc\fonts\binary_to_compressed_c.cpp" />
-    <ClCompile Include="imgui\misc\freetype\imgui_freetype.cpp" />
-    <ClCompile Include="imgui\misc\stl\imgui_stl.cpp" />
-    <ClCompile Include="GL\gl3w.c" />
-    <ClCompile Include="src\Core\Scene.cpp" />
-    <ClCompile Include="src\Core\SceneManager.cpp" />
-    <ClCompile Include="src\Core\App.cpp" />
-    <ClCompile Include="src\Core\Time.cpp" />
-    <ClCompile Include="src\Utility\Debugging\Log.cpp" />
-    <ClCompile Include="src\Utility\FastNoise.cpp" />
-    <ClCompile Include="src\Utility\RandomNumber.cpp" />
-    <ClCompile Include="src\Utility\Resource.cpp" />
-    <ClCompile Include="src\Utility\ResourceManager.cpp" />
-    <ClCompile Include="src\Utility\Resources\Shader.cpp" />
-    <ClCompile Include="src\Core\Window.cpp" />
-    <ClCompile Include="src\Utility\Resources\Texture.cpp" />
-    <ClCompile Include="src\Core\System.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
+    <ClInclude Include="FireLight.h" />
+    <ClInclude Include="imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl3_loader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
