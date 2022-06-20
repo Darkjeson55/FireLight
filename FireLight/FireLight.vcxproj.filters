@@ -5,11 +5,13 @@
     <ClCompile Include="FireLight.cpp" />
     <ClCompile Include="imgui\imgui_impl_glfw.cpp" />
     <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="OpenGL\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FireLight.h" />
     <ClInclude Include="imgui\imgui_impl_glfw.h" />
     <ClInclude Include="imgui\imgui_impl_opengl3.h" />
     <ClInclude Include="imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="OpenGL\Shader.h" />
   </ItemGroup>
 </Project>

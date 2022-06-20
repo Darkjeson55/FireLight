@@ -5,16 +5,15 @@
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 #include <string>
-#include "imgui/imgui_impl_glfw.h"
-#include "imgui/imgui_impl_opengl3.h"
-
+#include <iostream>
+#include "thirdParty/imgui/imgui_impl_glfw.h"
+#include "thirdParty/imgui/imgui_impl_opengl3.h"
+#include "src/OpenGL/Shader.h"
 
 void InitWindow(const int& width, const int& height, std::string name);
-bool WindowShouldClose();
+bool SetUpFrame();
 void UpdateWindow();
 void CloseWindow();
-
-
 
 
 #endif
