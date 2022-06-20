@@ -3,15 +3,21 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="FireLight.cpp" />
+    <ClCompile Include="thirdParty\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="thirdParty\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="src\OpenGL\Shader.cpp" />
     <ClCompile Include="imgui\imgui_impl_glfw.cpp" />
     <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="OpenGL\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FireLight.h" />
+    <ClInclude Include="thirdParty\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="thirdParty\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="thirdParty\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="src\OpenGL\Shader.h" />
     <ClInclude Include="imgui\imgui_impl_glfw.h" />
     <ClInclude Include="imgui\imgui_impl_opengl3.h" />
     <ClInclude Include="imgui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="OpenGL\Shader.h" />
+    <ClInclude Include="thirdParty\stb_image.h" />
   </ItemGroup>
 </Project>

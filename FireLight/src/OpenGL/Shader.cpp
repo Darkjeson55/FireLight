@@ -56,9 +56,6 @@ Shader Shader::LoadFromFile(std::string vertexPath, std::string fragmentPath)
     glDeleteShader(vertex);
     glDeleteShader(fragment);
 
-
-
-
     return shader;
 }
 

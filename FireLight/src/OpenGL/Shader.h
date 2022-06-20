@@ -10,7 +10,6 @@
 #include <iostream>
 //*****************
 
-
 struct Shader
 {
 	static Shader LoadFromFile(std::string vertexPath, std::string fragmenetPath);
