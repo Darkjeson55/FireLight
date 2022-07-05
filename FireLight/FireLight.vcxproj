@@ -142,7 +142,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FireLight.h" />
-    <ClInclude Include="src\Core\Input.h" />
     <ClInclude Include="src\Core\Time.h" />
     <ClInclude Include="src\OpenGL\Texture.h" />
     <ClInclude Include="thirdParty\imgui\imgui_impl_glfw.h" />

@@ -18,7 +18,6 @@ struct GameObject
 
 int main()
 {
-
     std::vector<GameObject> objects;
 
     glm::mat4 view = glm::mat4(1.0f);
@@ -104,11 +103,19 @@ int main()
         objects.push_back(obj);
     }
 
+
     glEnable(GL_DEPTH_TEST);
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
 	while (SetUpFrame())
 	{
+
+        if (Input::IsKeyPress(Input::KEY_A))
+        {
+            std::cout << "Hello" << std::endl;
+        }
+
+
         for (int i = 0; i < 9; i++)
         {
             texture.Bind();
