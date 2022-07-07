@@ -110,11 +110,14 @@ int main()
 	while (SetUpFrame())
 	{
 
-        if (Input::IsKeyPress(Input::KEY_A))
-        {
-            std::cout << "Hello" << std::endl;
-        }
+        if(Input::IsKeyUp(Input::KEY_D))
+            std::cout << "Button is Up" << std::endl;
 
+        if (Input::IsKeyDown(Input::KEY_S))
+            std::cout << "Button is Down" << std::endl;
+        
+        if (Input::IsKeyPress(Input::KEY_A))
+            std::cout << "Button is Press" << std::endl;
 
         for (int i = 0; i < 9; i++)
         {
@@ -127,7 +130,7 @@ int main()
             glBindVertexArray(objects[i].VAO);
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
-
+      
 		UpdateWindow();
 	}
 
