@@ -15,6 +15,5 @@
     <ClInclude Include="src\OpenGL\Shader.h" />
     <ClInclude Include="thirdParty\stb_image.h" />
     <ClInclude Include="src\OpenGL\Texture.h" />
-    <ClInclude Include="src\Core\Time.h" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,9 @@ int Input::m_press_keys[1024];
 int Input::m_mouse_button[32];
 int Input::m_press_mouse_button[32];
 
+float Input::mousePosX = 0;
+float Input::mousePosY = 0;
+
 void InitWindow(const int& width, const int& height, std::string name)
 {
 	if (!glfwInit())
@@ -24,6 +27,7 @@ void InitWindow(const int& width, const int& height, std::string name)
 
     glfwSetKeyCallback(window, Input::key_callback);
     glfwSetMouseButtonCallback(window, Input::mouse_button_callback);
+    glfwSetCursorPosCallback(window, Input::mouse_callback);
 
     GLenum err = glewInit();
 
@@ -51,7 +55,9 @@ bool SetUpFrame()
 
 void UpdateWindow()
 {
-    Input::Init();
+
+    //TODO:: NEED A MORE ROBUST IMPLEMENTATION INSTADE OF THIS
+    Input::Init(); // this is a mess should be fixd soon as possible
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     glfwSwapBuffers(window);
@@ -66,6 +72,11 @@ void CloseWindow()
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
+}
+
+void ShowMouseCursor(bool isShown)
+{
+    glfwSetInputMode(window, GLFW_CURSOR, (isShown) ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
 }
 
 
@@ -116,6 +127,11 @@ bool Input::IsMouseButtonUp(int keycode)
 	return currentState;
 }
 
+glm::vec2 Input::GetMousePos()
+{
+    return glm::vec2(mousePosX, mousePosY);
+}
+
 void Input::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	m_keys[key] = action;
@@ -126,5 +142,11 @@ void Input::mouse_button_callback(GLFWwindow* window, int button, int action, in
 {
 	m_mouse_button[button] = action;
 	m_press_mouse_button[button] = action;
+}
+
+void Input::mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
+{
+    mousePosX = xposIn;
+    mousePosY = yposIn;
 }
 

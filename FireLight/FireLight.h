@@ -14,6 +14,7 @@ void InitWindow(const int& width, const int& height, std::string name);
 bool SetUpFrame();
 void UpdateWindow();
 void CloseWindow();
+void ShowMouseCursor(bool isShown);
 
 struct Time
 {
@@ -188,6 +189,9 @@ struct Input
 	static int m_mouse_button[32];
 	static int m_press_mouse_button[32];
 
+	static float mousePosX;
+	static float mousePosY;
+
 	static void Init()
 	{
 		for (int i = 0; i < (sizeof(m_keys) / sizeof(*m_keys)); i++)
@@ -195,10 +199,10 @@ struct Input
 			m_keys[i] = -1;
 		}
 
-		for (int i = 0; i < (sizeof(m_press_keys) / sizeof(*m_press_keys)); i++)
-		{
-			m_press_keys[i] = -1;
-		}
+		//for (int i = 0; i < (sizeof(m_press_keys) / sizeof(*m_press_keys)); i++)
+		//{
+		//	m_press_keys[i] = -1;
+		//}
 
 		for (int i = 0; i < (sizeof(m_press_mouse_button) / sizeof(*m_press_mouse_button)); i++)
 		{
@@ -218,9 +222,12 @@ struct Input
 	static bool IsMouseButtonDown(int keycode);
 	static bool IsMouseButtonUp(int keycode);
 
+	static glm::vec2 GetMousePos();
+
 	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 	static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
-};
+	static void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
 
+};
 
 #endif
