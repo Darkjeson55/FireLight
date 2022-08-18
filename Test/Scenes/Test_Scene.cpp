@@ -74,4 +74,5 @@ void Test_Scene::Close()
 
 void Test_Scene::Debug()
 {
+	ImGui::ShowDemoWindow();
 }

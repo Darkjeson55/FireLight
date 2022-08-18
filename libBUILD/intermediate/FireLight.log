@@ -1,11 +1,5 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(453,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  imgui_impl_glfw.cpp
-  Scene.cpp
-F:\C++GitProjects\FireLight\FireLight\src\Core\Scene.cpp(66,34): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
-  SceneManager.cpp
-  System.cpp
-  Generating Code...
-  gl3w.c
+  App.cpp
 freetype.lib(freetype.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
-  FireLight.vcxproj -> F:\C++GitProjects\FireLight\libBUILD\FireLight.lib
+  FireLight.vcxproj -> D:\Projects\GitHubProjects\FireLight\libBUILD\FireLight.lib
